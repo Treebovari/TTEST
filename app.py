@@ -1,15 +1,1 @@
-from flask import Flask, jsonify, request
-
-app = Flask(__name__)
-
-@app.route('/')
-def home():
-    return jsonify({'message': 'Welcome to the Flask App!'}), 200
-
-@app.route('/api/data', methods=['GET'])
-def get_data():
-    data = {'key': 'value'}
-    return jsonify(data), 200
-
-if __name__ == '__main__':
-    app.run(debug=True)
+from flask import Flask, render_template\n\napp = Flask(__name__)\n\n@app.route('/clock')\ndef clock():\n    return render_template('clock.html')\n\nif __name__ == '__main__':\n    app.run(debug=True)
